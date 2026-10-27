@@ -17,6 +17,11 @@ import comune
 ARTICOLI_MASCHILI = {"la": "il", "una": "un", "della": "del", "alla": "al", "nella": "nel", "sulla": "sul"}
 
 
+def _articolo_un(nome: str) -> str:
+    """'uno' davanti a s+consonante, z, gn, ps, x; altrimenti 'un'."""
+    return "uno" if re.match(r"(?i)(s[^aeiou]|z|gn|ps|x)", nome) else "un"
+
+
 def _maiuscola_come(modello: str, parola: str) -> str:
     return parola.capitalize() if modello[:1].isupper() else parola
 
@@ -101,7 +106,12 @@ REGOLE = [
     ("Aniipod Maker", r"\bAniipod Maker\b", "Costruttore di Aniipod"),
     ("Runaway Amber", r"\b([Aa])mbra in fuga\b", r"\1mbra fuggitiva"),
     ("Mistwoods", r"\bBoschi della Nebbia\b", "Boschi Nebbiosi"),
-    ("Blitzwood", r"\bBoscoscuro\b", "Bosco Folgorante"),
+    ("Blitzwood", r"\bBoscoscuro\b|\bBosco ?[Bb]litz\b", "Bosco Folgorante"),
+    ("Rosetower", r"\bRosetorre\b", "Rosetower"),
+    ("Egg Heist", r"\b[Rr]apina delle [Uu]ova\b", "Furto delle Uova"),
+    ("Homeland", r"\bTerra [Nn]atale\b", "Terra natia"),
+    ("Bud Ticket", r"\b[Gg]ettoni Bud\b", "Biglietti germoglio"),
+    ("Dewdrop Crystal", r"\b([Cc])ristallo [Gg]occia di rugiada\b", r"\1ristallo di rugiada"),
     ("Rosetower Woods", r"\b([Nn]el|[Dd]el|[Aa]l|[Ii]l) Bosco (?:di )?(?:Rosetower|Torreroseto)\b",
      lambda m: _maiuscola_come(m.group(1), {"nel": "nei", "del": "dei", "al": "ai", "il": "i"}[m.group(1).lower()])
      + " Boschi Rosetower"),
@@ -109,6 +119,14 @@ REGOLE = [
     # Nomi di Aniimo al plurale: in italiano restano invariati.
     ("", r"\b(Emberpup|Pomegg|Cozite|Budsquire|Budclaw|Lavazar|Echoback|Pomawk|Hypnowl|Windglider|Jawling|Hummin)s\b",
      r"\1"),
+    ("", r"\b(Susuta|Flutternym|Veilfloat|Starine)s\b", r"\1"),
+    ("", r"\bPopapuses\b", "Popapus"),
+    ("", r"\bstarines\b", "Starine"),
+    ("Boomblast Arena", r"\bArena Esplosiva\b", "Arena Boomblast"),
+    ("Nimbus Fields", r"\bCampi (?:di )?Nimbo\b", "Campi Nimbus"),
+    ("Berylline Vale", r"\bValle Berillina\b", "Valle di Berylline"),
+    ("Tideblossom Coast", r"\bCosta (?:di )?Tideblossom\b", "Costa Tideblossom"),
+    ("Twine Mode", r"\bModalità Twine\b", "Modalità Intreccio"),
     ("", r"\bIgnitises\b", "Ignitis"),
     ("", r"\b(Bolt|Skipp|Whelp)ies\b", r"\1y"),
     ("Windglider", r"\bAliscivolanti\b", "Windglider"),
@@ -306,6 +324,10 @@ MODELLI = [
     (re.compile(r"^(" + "|".join(ELEMENTI) + r")-type Aniimo$"),
      lambda m, gl, it: f"Aniimo di tipo {ELEMENTI[m.group(1)]}" if m.group(1) not in ("Magic", "Physical") else None),
     (re.compile(r"^Audience Member (\d+)$"), lambda m, gl, it: f"Spettatore {m.group(1)}"),
+    (re.compile(r"^Encounter a Prismana Form ([A-Z][a-z]+)(\.?)$"),
+     lambda m, gl, it: f"Incontra {_articolo_un(m.group(1))} {m.group(1)} in forma Prismana{m.group(2)}"),
+    (re.compile(r"^Own 1 Sparkling Prismana ([A-Z][a-z]+)(\.?)$"),
+     lambda m, gl, it: f"Possiedi 1 {m.group(1)} Prismana scintillante{m.group(2)}"),
     (re.compile(r"^Increases gusto by (\d+)%$"), lambda m, gl, it: f"Aumenta Gusto del {m.group(1)}%"),
     (re.compile(r"^Damage Amp \+(\d+)%$"), lambda m, gl, it: f"Amplificazione danni +{m.group(1)}%"),
     # "Alpha Cheekie" / "Cheekie Alpha" -> "Cheekie Alfa" anche per nomi che il glossario non conosce

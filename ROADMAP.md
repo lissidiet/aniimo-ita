@@ -9,14 +9,15 @@ basta aprirla e premere **«Installa patch in italiano»** quando la scritta è 
 |---|---|---|---|
 | 1. Traduzione completa | tutto il gioco tradotto (51.749 frasi) | ✅ fatto | 100% |
 | 2. Nomi propri | Aniimo, personaggi, luoghi | ✅ fatto | 100% |
-| 3. Interfaccia | menu, pulsanti, oggetti, arredi, abilità | 🔄 in corso | rimangono 9.087 voci |
+| 3. Interfaccia | menu, pulsanti, oggetti, arredi, abilità | 🔄 in corso | rimangono 7.687 voci |
 | 4. Dialoghi e descrizioni | storia, missioni, descrizioni degli oggetti | ⏳ da fare | rimangono 24.606 voci |
-| **Totale revisione** | voci controllate a mano | 🔄 | **36,2%** (19.144 / 52.837) |
+| **Totale revisione** | voci controllate a mano | 🔄 | **38,9%** (20.544 / 52.837) |
 
 ## Versioni
 
 | Versione | Data | Revisione | Novità |
 |---|---|---|---|
+| **v1.0.6** | 27/10/2026 | 38,9% | +1.400 voci di interfaccia riviste (236 correzioni): Cristalli di rugiada, Padronanza elementale, Aniimo umbrali Alfa/Omega, Santuari e Simulatore Olo-Battaglia uniformati. |
 | **v1.0.5** | 27/10/2026 | 36,2% | +1.400 voci di interfaccia riviste (278 correzioni): Olo-gadget, oggetti tenuti e Runa morso uniformati in tutto il gioco, Pagelle, Furto delle Uova e titoli con maiuscole italiane. |
 | **v1.0.4** | 27/10/2026 | 33,6% | +1.400 voci di interfaccia riviste (245 correzioni): rune, moduli e semi uniformati, danni e Aniimo per tipo con schema fisso, Pebbling e Furto delle Uova coerenti. |
 | **v1.0.3** | 27/10/2026 | 30,9% | +1.400 voci di interfaccia riviste (284 correzioni): abilità di fulmine e ghiaccio, rune, oggetti della Casa, Fenditure, nomi "Spirit X" e "Umbral X", maiuscole all'inglese. |

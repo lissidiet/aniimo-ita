@@ -17,6 +17,7 @@ basta aprirla e premere **«Installa patch in italiano»** quando la scritta è 
 
 | Versione | Data | Revisione | Novità |
 |---|---|---|---|
+| **app v1.1.1** | 27/10/2026 | 28,3% | L'app mostra due numeri distinti: versione dell'app e versione della traduzione. Include la traduzione v1.0.2. |
 | **v1.0.2** | 27/10/2026 | 28,3% | +1.800 voci di interfaccia riviste (253 correzioni): appezzamenti della Casa, Fenditure, nomi "Spirit X" e "Blessed X", bonus, maiuscole; corretto "L Boschi Nebbiosi". |
 | **app v1.1.0** | 27/10/2026 | 24,9% | Pulsanti più chiari: «Installa patch in italiano» e «Ultima versione già installata». Progetto pubblico. |
 | **v1.0.1** | 27/10/2026 | 24,9% | +1.200 voci di interfaccia riviste (108 correzioni): "Buff" → Bonus, "Rift" → Fenditura ovunque, statistiche DIF/ATT uniformate. |

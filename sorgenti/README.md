@@ -9,7 +9,7 @@ Questa cartella non serve per giocare: per usare la patch basta `AniimoITA.exe` 
 | `pubblica_traduzione.py` | pubblica online una nuova versione della traduzione (l'app la scarica da sola) |
 | `aggiorna.py`, `crea_patch.py`, `estrai.py`, `comune.py` | costruzione e installazione della patch |
 | `traduci.py`, `seleziona.py`, `applica_lotto.py`, `accorcia.py` | traduzione delle frasi nuove |
-| `revisiona.py`, `regole.py`, `maiuscole.py`, `revisione.py` | revisione e coerenza della traduzione |
+| `revisiona.py`, `regole.py`, `maiuscole.py` | revisione e coerenza della traduzione |
 | `dati/` | numero di versione e indirizzo degli aggiornamenti. I file della traduzione non sono nel repository: contengono i testi del gioco e si scaricano dall'app |
 | `GLOSSARIO.md` | scelte di traduzione |
 

@@ -1,4 +1,4 @@
-"""Controlla la patch italiana e, se serve, la rigenera e la installa. Lanciato da Italiano.ps1.
+"""Controlla la patch italiana e, se serve, la rigenera e la installa. Usato da AniimoITA.exe (aniimo_ita_app.py).
 
 Uso:  python aggiorna.py               -> controlla, aggiorna se serve, installa
       python aggiorna.py --controlla   -> dice solo lo stato, non cambia niente
@@ -33,7 +33,7 @@ def scrivi_nel_gioco(blob: bytes) -> bool:
         FILE_GIOCO.write_bytes(blob)
         return True
     except PermissionError:
-        print("ERRORE: permesso negato. Avvia Italiano.ps1 come amministratore.")
+        print("ERRORE: permesso negato. Riprova con i permessi di amministratore.")
         return False
 
 
@@ -97,7 +97,7 @@ def esegui(controlla: bool = False, ripristina: bool = False) -> str:
     else:
         print("\nLa patch installata e' vecchia o incompleta.")
     if controlla:
-        print("Avvia Italiano.ps1 senza --controlla per aggiornarla.")
+        print("Avvia senza --controlla per aggiornarla.")
         return "originale" if attuale == orig else "da_aggiornare"
     if gioco_aperto():
         print("Chiudi il gioco e rilancia: il file e' in uso.")

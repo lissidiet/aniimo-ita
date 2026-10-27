@@ -16,6 +16,7 @@ import tkinter as tk
 from pathlib import Path
 from tkinter import filedialog, messagebox, ttk
 
+VERSIONE_APP = "1.1.1"  # versione dell'exe; la traduzione ha un numero suo (v1.0.x)
 DATI = Path(os.environ.get("LOCALAPPDATA", Path.home())) / "AniimoITA"
 os.environ["ANIIMO_ITA_DATI"] = str(DATI)
 INCLUSI = Path(getattr(sys, "_MEIPASS", Path(__file__).parent)) / "dati"
@@ -183,7 +184,7 @@ def lavora(azione: str, coda: queue.Queue) -> None:
 class App(tk.Tk):
     def __init__(self, azione_iniziale: str | None):
         super().__init__()
-        self.title("Aniimo in italiano")
+        self.title(f"Aniimo in italiano · app v{VERSIONE_APP}")
         # Su schermi ad alta risoluzione testi e finestra si ingrandiscono in proporzione
         dpi = self.winfo_fpixels("1i")
         self.tk.call("tk", "scaling", dpi / 72)
@@ -307,12 +308,12 @@ class App(tk.Tk):
         nota = " (offline: aggiornamenti non controllati)" if self.online == "offline" else ""
         if esito in ("gia_ok", "installata"):
             ultima = " · ultima versione" if self.online in ("ultima", "scaricata") else ""
-            self.versione.config(text=f"Patch v{attuale} installata{ultima}{nota}", fg=VERDE)
+            self.versione.config(text=f"App v{VERSIONE_APP} · Traduzione v{attuale} installata{ultima}{nota}", fg=VERDE)
         elif esito == "da_aggiornare":
             vecchia = f"v{installata}" if installata and installata != attuale else "una versione vecchia"
-            self.versione.config(text=f"Nel gioco c'è la patch {vecchia} · disponibile v{attuale}{nota}", fg=ROSSO)
+            self.versione.config(text=f"App v{VERSIONE_APP} · Nel gioco c'è la traduzione {vecchia} · disponibile v{attuale}{nota}", fg=ROSSO)
         elif esito in ("originale", "gia_originale", "ripristinato"):
-            self.versione.config(text=f"Patch non installata · disponibile v{attuale}{nota}", fg=ROSSO)
+            self.versione.config(text=f"App v{VERSIONE_APP} · Traduzione non installata · disponibile v{attuale}{nota}", fg=ROSSO)
 
     # ---------------------------------------------------------- azioni
     def chiedi_ripristino(self):

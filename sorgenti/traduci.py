@@ -6,7 +6,7 @@ Flusso:
   python traduci.py stima              -> numero richieste e costo stimato
   python traduci.py invia              -> crea il batch, salva l'id in dati/batch.json
   python traduci.py scarica            -> se il batch e' finito, scrive dati/lotti/tutto_it.json
-  python applica_lotto.py dati/lotti/tutto_it.json, poi Italiano.ps1 per installare
+  python applica_lotto.py dati/lotti/tutto_it.json, poi AniimoITA.exe per installare
 """
 import json
 import sys

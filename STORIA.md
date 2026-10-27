@@ -30,7 +30,7 @@ Revisione voce per voce, a blocchi, in ordine di importanza:
 | Interfaccia | menu, pulsanti, oggetti, arredi, abilità (testi brevi) | 🔄 in corso, ~48% |
 | Resto | dialoghi, descrizioni, missioni | ⏳ da fare |
 
-Totale: **28.844 voci su 52.837 (54,6%)**, **5.488 correzioni manuali**. Traduzione pubblicata: **v1.0.13**.
+Totale: **29.444 voci su 52.837 (55,7%)**, **5.587 correzioni manuali**. Traduzione pubblicata: **v1.0.14**.
 
 Esempi di errori corretti:
 - "Best Offense is Defense" era tradotto al contrario ("La miglior difesa è l'attacco");

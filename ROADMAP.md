@@ -17,6 +17,7 @@ basta aprirla e premere **«Installa patch in italiano»** quando la scritta è 
 
 | Versione | Data | Revisione | Novità |
 |---|---|---|---|
+| **app v1.1.0** | 27/10/2026 | 24,9% | Pulsanti più chiari: «Installa patch in italiano» e «Ultima versione già installata». Progetto pubblico. |
 | **v1.0.1** | 27/10/2026 | 24,9% | +1.200 voci di interfaccia riviste (108 correzioni): "Buff" → Bonus, "Rift" → Fenditura ovunque, statistiche DIF/ATT uniformate. |
 | **v1.0.0** | 27/10/2026 | 22,6% | Prima versione dell'app con aggiornamenti automatici. Traduzione completa, nomi propri rivisti, interfaccia rivista al 40%, ~3.000 frasi uniformate (colture, uova, chip, Alfa/Omega, maiuscole). |
 

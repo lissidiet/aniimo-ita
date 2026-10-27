@@ -62,9 +62,13 @@ REGOLE = [
     *[(en, rx, lambda m: _maiuscola_come(m.group(0), "olo-gadget"))
       for en in ("Holo-gizmo", "holo-gizmo", "Holo-Gizmo")
       for rx in (r"\b[Gg]adget olografic[oi]\b", r"\b[Oo]lo-?[Gg](?:izmo|adget)\b")],
-    ("Held Item", r"\b([Oo])ggett([oi]) [Ee]quipaggiat[oi]\b",
+    ("Held Item", r"\b([Oo])ggett([oi]) (?:[Ee]quipaggiat[oi]|[Ee]quipaggiabil[ei])\b",
      lambda m: f"{m.group(1)}ggett{m.group(2)} tenut{m.group(2)}"),
     ("Biting Rune", r"\b([Rr])una (?:mordente|morsicante)\b", r"\1una morso"),
+    ("Dewdrop Crystal", r"\b([Cc])ristall([oi]) di Rugiada\b", r"\1ristall\2 di rugiada"),
+    ("Dewdrop Crystal", r"\b([Cc])ristall([oi]) Rugiada(?: di)?\b", r"\1ristall\2 di rugiada"),
+    ("Element Mastery", r"\b([Mm])aestria elementale\b",
+     lambda m: _maiuscola_come(m.group(1), "padronanza elementale")),
     ("RV", r"\blivello (\d+) (?:di|del) (?:RV|camper)\b", r"livello \1 del camper"),
     ("RV", r"\bRV Liv\. ", "Camper Lv. "),
     ("Pathfinder", r"\bTracciatore\b", "Esploratore"),
@@ -285,8 +289,10 @@ def esegui(applica: bool):
     # "Umbral X" da solo: il nome dell'Aniimo resta inglese, l'aggettivo va dopo.
     umbrali, glossario = 0, comune.carica(comune.GLOSSARIO, {})
     for s_en in memoria:
-        m = re.match(r"^Umbral ([A-Z][a-z]+)$", s_en)
-        nome = m and glossario.get(m.group(1), m.group(1))
+        m = re.match(r"^Umbral (?:(Alpha|Omega) )?([A-Z][a-z]+)$", s_en)
+        nome = m and glossario.get(m.group(2), m.group(2))
+        if m and m.group(1):
+            nome += " Alfa" if m.group(1) == "Alpha" else " Omega"
         if m and memoria[s_en] != f"{nome} umbrale":
             memoria[s_en] = f"{nome} umbrale"
             umbrali += 1

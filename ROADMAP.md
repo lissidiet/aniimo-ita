@@ -9,14 +9,15 @@ basta aprirla e premere **«Installa patch in italiano»** quando la scritta è 
 |---|---|---|---|
 | 1. Traduzione completa | tutto il gioco tradotto (51.749 frasi) | ✅ fatto | 100% |
 | 2. Nomi propri | Aniimo, personaggi, luoghi | ✅ fatto | 100% |
-| 3. Interfaccia | menu, pulsanti, oggetti, arredi, abilità | 🔄 in corso | rimangono 13.287 voci |
+| 3. Interfaccia | menu, pulsanti, oggetti, arredi, abilità | 🔄 in corso | rimangono 11.887 voci |
 | 4. Dialoghi e descrizioni | storia, missioni, descrizioni degli oggetti | ⏳ da fare | rimangono 24.606 voci |
-| **Totale revisione** | voci controllate a mano | 🔄 | **28,3%** (14.944 / 52.837) |
+| **Totale revisione** | voci controllate a mano | 🔄 | **30,9%** (16.344 / 52.837) |
 
 ## Versioni
 
 | Versione | Data | Revisione | Novità |
 |---|---|---|---|
+| **v1.0.3** | 27/10/2026 | 30,9% | +1.400 voci di interfaccia riviste (284 correzioni): abilità di fulmine e ghiaccio, rune, oggetti della Casa, Fenditure, nomi "Spirit X" e "Umbral X", maiuscole all'inglese. |
 | **app v1.1.1** | 27/10/2026 | 28,3% | L'app mostra due numeri distinti: versione dell'app e versione della traduzione. Include la traduzione v1.0.2. |
 | **v1.0.2** | 27/10/2026 | 28,3% | +1.800 voci di interfaccia riviste (253 correzioni): appezzamenti della Casa, Fenditure, nomi "Spirit X" e "Blessed X", bonus, maiuscole; corretto "L Boschi Nebbiosi". |
 | **app v1.1.0** | 27/10/2026 | 24,9% | Pulsanti più chiari: «Installa patch in italiano» e «Ultima versione già installata». Progetto pubblico. |

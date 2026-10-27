@@ -10,13 +10,14 @@ basta aprirla e premere **«Installa patch in italiano»** quando la scritta è 
 | 1. Traduzione completa | tutto il gioco tradotto (51.749 frasi) | ✅ fatto | 100% |
 | 2. Nomi propri | Aniimo, personaggi, luoghi | ✅ fatto | 100% |
 | 3. Interfaccia | menu, pulsanti, oggetti, arredi, abilità | ✅ fatto | rimangono 0 voci |
-| 4. Dialoghi e descrizioni | storia, missioni, descrizioni degli oggetti | 🔄 in corso | rimangono 22.493 voci |
-| **Totale revisione** | voci controllate a mano | 🔄 | **57,4%** (30.344 / 52.837) |
+| 4. Dialoghi e descrizioni | storia, missioni, descrizioni degli oggetti | 🔄 in corso | rimangono 21.893 voci |
+| **Totale revisione** | voci controllate a mano | 🔄 | **58,6%** (30.944 / 52.837) |
 
 ## Versioni
 
 | Versione | Data | Revisione | Novità |
 |---|---|---|---|
+| **v1.0.16** | 27/10/2026 | 58,6% | Revisione al 58,6%: nomi di colture, macchine e luoghi uniformati (Ravanello Rugiada Lunare, Peperoncino Luna Crescente, Mulino Floreale, Valle delle Lucciole), Intreccio e Cura nei dialoghi |
 | **v1.0.15** | 27/10/2026 | 57,4% | Revisione al 57,4%: descrizioni degli attacchi base uniformate, Forziere Fortunato, Cura della Vena, Altopiani Russet, Emberpup e Flameruff, oggetti tenuti |
 | **v1.0.14** | 27/10/2026 | 55,7% | +600 voci di dialoghi e descrizioni riviste (98 correzioni): PS, tipi elementali, Aniimo umbrali, Cristalli di rugiada, Prato Driftwise, Cura e luoghi uniformati in tutti i testi. |
 | **v1.0.13** | 27/10/2026 | 54,6% | Iniziata la revisione di dialoghi e descrizioni (+600 voci, 94 correzioni): Schiuditori, Cura, energia della Vena, camper, Terra natia e Dott. Lewis uniformati in tutti i testi lunghi. |

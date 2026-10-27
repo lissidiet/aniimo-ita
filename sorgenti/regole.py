@@ -244,6 +244,11 @@ MODELLI = [
                        + ("cucina" if m.group(1) == "Kitchen" else "di creazione")),
     (re.compile(r"^([A-Z][a-z]+)-Inspired Garden Fence$"),
      lambda m, gl, it: f"Recinto da giardino ispirato a {m.group(1)}" if m.group(1) in it else None),
+    (re.compile(r"^(" + "|".join(ELEMENTI) + r")-type Damage$"),
+     lambda m, gl, it: f"Danno di tipo {ELEMENTI[m.group(1)]}" if m.group(1) not in ("Magic", "Physical") else None),
+    (re.compile(r"^(" + "|".join(ELEMENTI) + r")-type Aniimo$"),
+     lambda m, gl, it: f"Aniimo di tipo {ELEMENTI[m.group(1)]}" if m.group(1) not in ("Magic", "Physical") else None),
+    (re.compile(r"^Audience Member (\d+)$"), lambda m, gl, it: f"Spettatore {m.group(1)}"),
     (re.compile(r"^Increases gusto by (\d+)%$"), lambda m, gl, it: f"Aumenta Gusto del {m.group(1)}%"),
     (re.compile(r"^Damage Amp \+(\d+)%$"), lambda m, gl, it: f"Amplificazione danni +{m.group(1)}%"),
     # "Alpha Cheekie" / "Cheekie Alpha" -> "Cheekie Alfa" anche per nomi che il glossario non conosce

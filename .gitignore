@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+sorgenti/dati/patch/
+sorgenti/dati/lotti/
+sorgenti/dati/revisione/
+sorgenti/dati/build/
+sorgenti/dati/percorso_gioco.txt
+*.tmp
+sorgenti/dati/*.json

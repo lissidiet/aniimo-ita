@@ -1,0 +1,2 @@
+# Necessaria solo per tradurre le frasi nuove dopo un aggiornamento del gioco (serve una chiave API Anthropic).
+anthropic>=2.3

@@ -9,14 +9,15 @@ basta aprirla e premere **«Installa patch in italiano»** quando la scritta è 
 |---|---|---|---|
 | 1. Traduzione completa | tutto il gioco tradotto (51.749 frasi) | ✅ fatto | 100% |
 | 2. Nomi propri | Aniimo, personaggi, luoghi | ✅ fatto | 100% |
-| 3. Interfaccia | menu, pulsanti, oggetti, arredi, abilità | 🔄 in corso | rimangono 3.487 voci |
+| 3. Interfaccia | menu, pulsanti, oggetti, arredi, abilità | 🔄 in corso | rimangono 2.087 voci |
 | 4. Dialoghi e descrizioni | storia, missioni, descrizioni degli oggetti | ⏳ da fare | rimangono 24.606 voci |
-| **Totale revisione** | voci controllate a mano | 🔄 | **46,8%** (24.744 / 52.837) |
+| **Totale revisione** | voci controllate a mano | 🔄 | **49,5%** (26.144 / 52.837) |
 
 ## Versioni
 
 | Versione | Data | Revisione | Novità |
 |---|---|---|---|
+| **v1.0.10** | 27/10/2026 | 49,5% | +1.400 voci di interfaccia riviste (260 correzioni): Aniimo in forma Prismana e Prismana scintillanti con schema fisso, Arena Boomblast, Campi Nimbus, Furto delle Uova, Biglietti germoglio, plurali dei nomi. |
 | **v1.0.9** | 27/10/2026 | 46,8% | +1.400 voci di interfaccia riviste (233 correzioni): Boschi Rosetower, Boschi Nebbiosi e Bosco Folgorante uniformati, nomi degli Aniimo senza plurale inglese, Costruttore di Aniipod, addestramento d'élite. |
 | **v1.0.8** | 27/10/2026 | 44,2% | +1.400 voci di interfaccia riviste (240 correzioni): Società Umbrale, Simulatore Olo-Battaglia, timbri, distintivi, avatar e riduzioni danni per tipo uniformati in tutto il gioco. |
 | **v1.0.7** | 27/10/2026 | 41,5% | +1.400 voci di interfaccia riviste (235 correzioni): camper, pass mensile, Terra natia e Voci uniformati in tutto il gioco, Monete Addestramento, distintivi e avatar. |

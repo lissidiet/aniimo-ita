@@ -9,14 +9,15 @@ basta aprirla e premere **«Installa patch in italiano»** quando la scritta è 
 |---|---|---|---|
 | 1. Traduzione completa | tutto il gioco tradotto (51.749 frasi) | ✅ fatto | 100% |
 | 2. Nomi propri | Aniimo, personaggi, luoghi | ✅ fatto | 100% |
-| 3. Interfaccia | menu, pulsanti, oggetti, arredi, abilità | 🔄 in corso | rimangono 687 voci |
-| 4. Dialoghi e descrizioni | storia, missioni, descrizioni degli oggetti | ⏳ da fare | rimangono 24.606 voci |
-| **Totale revisione** | voci controllate a mano | 🔄 | **52,1%** (27.544 / 52.837) |
+| 3. Interfaccia | menu, pulsanti, oggetti, arredi, abilità | ✅ fatto | rimangono 0 voci |
+| 4. Dialoghi e descrizioni | storia, missioni, descrizioni degli oggetti | 🔄 in corso | rimangono 24.593 voci |
+| **Totale revisione** | voci controllate a mano | 🔄 | **53,5%** (28.244 / 52.837) |
 
 ## Versioni
 
 | Versione | Data | Revisione | Novità |
 |---|---|---|---|
+| **v1.0.12** | 27/10/2026 | 53,5% | Interfaccia completata: tutte le voci di menu, pulsanti e titoli sono state riviste (+700 voci, 140 correzioni). Prossima fase: dialoghi e descrizioni. |
 | **v1.0.11** | 27/10/2026 | 52,1% | +1.400 voci di interfaccia riviste (237 correzioni), superata la metà del gioco: Approdo Echoback, Stagione della Casa, Fenditura, luoghi e Intrecci uniformati in tutto il gioco. |
 | **v1.0.10** | 27/10/2026 | 49,5% | +1.400 voci di interfaccia riviste (260 correzioni): Aniimo in forma Prismana e Prismana scintillanti con schema fisso, Arena Boomblast, Campi Nimbus, Furto delle Uova, Biglietti germoglio, plurali dei nomi. |
 | **v1.0.9** | 27/10/2026 | 46,8% | +1.400 voci di interfaccia riviste (233 correzioni): Boschi Rosetower, Boschi Nebbiosi e Bosco Folgorante uniformati, nomi degli Aniimo senza plurale inglese, Costruttore di Aniipod, addestramento d'élite. |

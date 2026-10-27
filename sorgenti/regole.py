@@ -59,6 +59,12 @@ REGOLE = [
      lambda m: _maiuscola_come(m.group(1), ARTICOLI_MASCHILI[m.group(1).lower()]) + " Cornet"),
     ("Cornet", r"\bCornett[aeio]\b", "Cornet"),
     ("Cornet", r"\bCornet acuta\b", "Cornet acuto"),
+    *[(en, rx, lambda m: _maiuscola_come(m.group(0), "olo-gadget"))
+      for en in ("Holo-gizmo", "holo-gizmo", "Holo-Gizmo")
+      for rx in (r"\b[Gg]adget olografic[oi]\b", r"\b[Oo]lo-?[Gg](?:izmo|adget)\b")],
+    ("Held Item", r"\b([Oo])ggett([oi]) [Ee]quipaggiat[oi]\b",
+     lambda m: f"{m.group(1)}ggett{m.group(2)} tenut{m.group(2)}"),
+    ("Biting Rune", r"\b([Rr])una (?:mordente|morsicante)\b", r"\1una morso"),
     ("RV", r"\blivello (\d+) (?:di|del) (?:RV|camper)\b", r"livello \1 del camper"),
     ("RV", r"\bRV Liv\. ", "Camper Lv. "),
     ("Pathfinder", r"\bTracciatore\b", "Esploratore"),

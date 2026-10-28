@@ -47,6 +47,15 @@ Dettagli in **[AGGIORNAMENTI.md](AGGIORNAMENTI.md)**. Versioni e avanzamento: **
 
 Altre immagini nella cartella [`foto/`](foto/). Cosa è stato fatto finora: **[STORIA.md](STORIA.md)**.
 
+## Sostieni il progetto
+
+La traduzione è **gratuita** e lo resterà. Se ti è utile e vuoi aiutarmi a finire la revisione,
+puoi offrirmi un caffè:
+
+[![Offrimi un caffè su Ko-fi](https://img.shields.io/badge/Ko--fi-Offrimi%20un%20caff%C3%A8-ff5e5b?logo=ko-fi&logoColor=white)](https://ko-fi.com/aniimoita)
+
+Le donazioni sono volontarie e non sbloccano niente: la patch è uguale per tutti.
+
 ## Avvertenze
 
 - **Le modifiche ai file non sono accettate dal regolamento di Aniimo.** La patch cambia solo i testi

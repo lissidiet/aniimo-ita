@@ -1,4 +1,5 @@
 """Funzioni condivise: percorsi, lettura dei testi del gioco, protezione dei segnaposto."""
+import hashlib
 import json
 import re
 import zipfile
@@ -20,6 +21,9 @@ MEMORIA = DATI / "memoria.json"       # {testo inglese: testo italiano}, sopravv
 GLOSSARIO = DATI / "glossario.json"   # {termine inglese: termine italiano}, rivedibile a mano
 MEMORIA_CORTA = DATI / "memoria_corta.json"  # {testo inglese: italiano accorciato} se lo spazio non basta
 VECCHIO_IT_JSON = DATI / "it.json"   # formato precedente {id: italiano}, convertito in memoria
+# Pacchetto pubblico (exe e Supabase): {impronta della frase inglese: italiano}, senza testo del gioco
+PACCHETTO_MEMORIA = "memoria_h.json"
+PACCHETTO_CORTA = "memoria_corta_h.json"
 
 # Segnaposto e markup che devono restare identici nella traduzione:
 # {0} {param1}, <style=...> </style>, colori #d89c28, marcatori #kHud #z, \n.
@@ -72,6 +76,30 @@ def leggi_lingua(codice: str = "en", sorgente: str = "zip") -> tuple[int, dict[s
     return versione, testi
 
 
+def impronta(testo: str) -> str:
+    """Codice di una frase inglese: il pacchetto pubblico usa questo al posto del testo del gioco."""
+    return hashlib.sha256(testo.encode("utf-8")).hexdigest()[:16]
+
+
+def pacchetto(memoria: dict[str, str]) -> dict[str, str]:
+    """{inglese: italiano} -> {impronta: italiano}, il formato pubblicato (senza testo originale)."""
+    return {impronta(en): it for en, it in memoria.items()}
+
+
+def _con_pacchetto(memoria: dict[str, str], nome_pacchetto: str) -> dict[str, str]:
+    """Aggiunge le traduzioni del pacchetto pubblico, ritrovando le frasi inglesi nei file del gioco
+    (en.json estratto sul PC). Il pacchetto e' piu' recente: ha la precedenza."""
+    p = DATI / nome_pacchetto
+    if not p.exists() or not EN_JSON.exists():
+        return memoria
+    codici = carica(p, {})
+    for en in carica(EN_JSON)["testi"].values():
+        it = codici.get(impronta(en))
+        if it is not None:
+            memoria[en] = it
+    return memoria
+
+
 def carica_memoria() -> dict[str, str]:
     memoria = carica(MEMORIA, {})
     if not memoria and VECCHIO_IT_JSON.exists():
@@ -79,7 +107,11 @@ def carica_memoria() -> dict[str, str]:
         memoria = {en[k]: s for k, s in carica(VECCHIO_IT_JSON).items() if k in en}
         salva(MEMORIA, memoria)
         VECCHIO_IT_JSON.unlink()
-    return memoria
+    return _con_pacchetto(memoria, PACCHETTO_MEMORIA)
+
+
+def carica_memoria_corta() -> dict[str, str]:
+    return _con_pacchetto(carica(MEMORIA_CORTA, {}), PACCHETTO_CORTA)
 
 
 def carica(p: Path, default=None):

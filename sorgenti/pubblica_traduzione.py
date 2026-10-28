@@ -7,7 +7,8 @@ Legge dal PC (mai da file del repository):
 
 Nel contenitore pubblico "aniimo-ita" mette:
   versione.json                         {versione, data, frasi, file: {nome: sha256}}
-  memoria.json.gz, memoria_corta.json.gz, glossario.json.gz
+  memoria_h.json.gz, memoria_corta_h.json.gz   {impronta della frase inglese: italiano}
+Il testo inglese del gioco non viene pubblicato: l'app ritrova le frasi con le impronte (comune.pacchetto).
 
 Ogni pubblicazione ha un numero di versione (dati/versione_patch.txt): senza argomenti l'ultima cifra
 sale di uno (1.0.0 -> 1.0.1); con un argomento si sceglie il numero (es. 1.1.0).
@@ -26,7 +27,8 @@ from datetime import datetime
 import comune
 
 CONTENITORE = "aniimo-ita"
-FILE = ("memoria.json", "memoria_corta.json", "glossario.json")
+FILE = {comune.PACCHETTO_MEMORIA: comune.MEMORIA, comune.PACCHETTO_CORTA: comune.MEMORIA_CORTA}
+VECCHI = ("memoria.json", "memoria_corta.json", "glossario.json")  # formato con il testo inglese: da togliere
 
 
 def variabile(nome: str) -> str:
@@ -85,8 +87,9 @@ def main():
             parti[-1] += 1
         versione = ".".join(map(str, parti))
     impronte = {}
-    for nome in FILE:
-        dati = gzip.compress((comune.DATI / nome).read_bytes(), 9)
+    for nome, sorgente in FILE.items():
+        pacchetto = comune.pacchetto(comune.carica(sorgente, {}))
+        dati = gzip.compress(json.dumps(pacchetto, ensure_ascii=False).encode("utf-8"), 9)
         impronte[nome] = hashlib.sha256(dati).hexdigest()
         stato, risposta = chiama("POST", f"{url}/storage/v1/object/{CONTENITORE}/{nome}.gz", chiave, dati,
                                  "application/gzip", {"x-upsert": "true", "cache-control": "max-age=60"})
@@ -95,13 +98,18 @@ def main():
         print(f"  caricato {nome}.gz ({len(dati) // 1024} KB)")
 
     info = {"versione": versione, "data": datetime.now().strftime("%d/%m/%Y"),
-            "frasi": len(comune.carica_memoria()), "file": impronte}
+            "frasi": len(comune.carica(comune.MEMORIA, {})), "file": impronte}
     stato, risposta = chiama("POST", f"{url}/storage/v1/object/{CONTENITORE}/versione.json", chiave,
                              json.dumps(info).encode(), "application/json",
                              {"x-upsert": "true", "cache-control": "max-age=60"})
     if stato not in (200, 201):
         sys.exit(f"Errore nel caricare versione.json: {stato} {risposta[:200]!r}")
     file_versione.write_text(versione, encoding="utf-8")
+    vecchi = [f"{nome}.gz" for nome in VECCHI]
+    stato, risposta = chiama("DELETE", f"{url}/storage/v1/object/{CONTENITORE}", chiave,
+                             json.dumps({"prefixes": vecchi}).encode())
+    if stato not in (200, 201):
+        print(f"  attenzione: file vecchi non rimossi ({stato} {risposta[:120]!r})")
     print(f"Pubblicata la traduzione v{versione}: {url}/storage/v1/object/public/{CONTENITORE}/versione.json")
 
 

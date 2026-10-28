@@ -45,7 +45,7 @@ def costruisci(slot: str = SLOT, modo: str = "spazi", solo_originale: bool = Fal
 
     en = comune.carica(comune.EN_JSON)["testi"]
     memoria = {} if solo_originale else comune.carica_memoria()
-    corte = {} if solo_originale else comune.carica(comune.MEMORIA_CORTA, {})
+    corte = {} if solo_originale else comune.carica_memoria_corta()
 
     span = defaultdict(list)
     for k, (o, n) in mappa.items():

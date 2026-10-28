@@ -17,6 +17,7 @@ basta aprirla e premere **«Installa patch in italiano»** quando la scritta è 
 
 | Versione | Data | Revisione | Novità |
 |---|---|---|---|
+| **v1.0.18** | 28/10/2026 | 59,7% | Nuovo formato del pacchetto: online e nell'app c'è solo il testo italiano, non più quello inglese del gioco (serve l'app v1.2.0) |
 | **v1.0.17** | 28/10/2026 | 59,7% | Revisione al 59,7%: Schiuditore, Albero Blitz, Lady Irelia, Timbri Windborn, Interconnessione Olo-Battaglia, Obiettivi Stagionali, Dott. Lewis e nomi di Aniimo al plurale uniformati |
 | **v1.0.16** | 27/10/2026 | 58,6% | Revisione al 58,6%: nomi di colture, macchine e luoghi uniformati (Ravanello Rugiada Lunare, Peperoncino Luna Crescente, Mulino Floreale, Valle delle Lucciole), Intreccio e Cura nei dialoghi |
 | **v1.0.15** | 27/10/2026 | 57,4% | Revisione al 57,4%: descrizioni degli attacchi base uniformate, Forziere Fortunato, Cura della Vena, Altopiani Russet, Emberpup e Flameruff, oggetti tenuti |

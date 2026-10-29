@@ -17,6 +17,7 @@ basta aprirla e premere **«Installa patch in italiano»** quando la scritta è 
 
 | Versione | Data | Revisione | Novità |
 |---|---|---|---|
+| **v1.0.20** | 29/10/2026 | 59,7% | Part 2: recuperati i testi scartati e accorciati quelli troppo lunghi (99,9% in italiano) |
 | **v1.0.19** | 29/10/2026 | 59,7% | Pronta per la Part 2: tradotti i testi nuovi (nuova regione, Aniimo e missioni) |
 | **v1.0.18** | 28/10/2026 | 59,7% | Nuovo formato del pacchetto: online e nell'app c'è solo il testo italiano, non più quello inglese del gioco (serve l'app v1.2.0) |
 | **v1.0.17** | 28/10/2026 | 59,7% | Revisione al 59,7%: Schiuditore, Albero Blitz, Lady Irelia, Timbri Windborn, Interconnessione Olo-Battaglia, Obiettivi Stagionali, Dott. Lewis e nomi di Aniimo al plurale uniformati |

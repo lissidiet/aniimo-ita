@@ -305,7 +305,8 @@ class App(tk.Tk):
         elif esito in ("gia_originale", "ripristinato"):
             file_installata.unlink(missing_ok=True)
         installata = file_installata.read_text(encoding="utf-8").strip() if file_installata.exists() else ""
-        nota = " (offline: aggiornamenti non controllati)" if self.online == "offline" else ""
+        nota = {"offline": " (offline: aggiornamenti non controllati)",
+                "nessun_server": " · versione senza aggiornamenti automatici"}.get(self.online, "")
         if esito in ("gia_ok", "installata"):
             ultima = " · ultima versione" if self.online in ("ultima", "scaricata") else ""
             self.versione.config(text=f"App v{VERSIONE_APP} · Traduzione v{attuale} installata{ultima}{nota}", fg=VERDE)

@@ -10,8 +10,9 @@ New-Item -ItemType Directory -Force $inclusi | Out-Null
 if (Test-Path "dati\supabase_url.txt") { Copy-Item "dati\supabase_url.txt" $inclusi }  # indirizzo pubblico degli aggiornamenti
 # Numero di versione della traduzione inclusa: lo stesso pubblicato su Supabase (pubblica_traduzione.py).
 Copy-Item "dati\versione_patch.txt" "$inclusi\versione_traduzione.txt"
+# Niente API nell'app: anthropic, traduci e accorcia restano fuori dall'exe.
 & .venv\Scripts\python.exe -m PyInstaller --noconfirm --onefile --windowed --name AniimoITA `
     --icon (Join-Path $qui "aniimo_ita.ico") --add-data "$inclusi;dati" --add-data "$(Join-Path $qui 'aniimo_ita.ico');." `
-    --hidden-import traduci --hidden-import accorcia --hidden-import applica_lotto `
+    --exclude-module anthropic --exclude-module traduci --exclude-module accorcia `
     --workpath "$build\lavoro" --distpath "$build\dist" --specpath $build (Join-Path $qui "aniimo_ita_app.py")
 Pop-Location

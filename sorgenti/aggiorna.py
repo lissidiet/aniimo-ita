@@ -1,4 +1,6 @@
 """Controlla la patch italiana e, se serve, la rigenera e la installa. Usato da AniimoITA.exe (aniimo_ita_app.py).
+Non usa mai l'API di Claude: le frasi nuove si traducono a parte (traduci.py, accorcia.py) e arrivano
+con la traduzione pubblicata su Supabase.
 
 Uso:  python aggiorna.py               -> controlla, aggiorna se serve, installa
       python aggiorna.py --controlla   -> dice solo lo stato, non cambia niente
@@ -6,7 +8,6 @@ Uso:  python aggiorna.py               -> controlla, aggiorna se serve, installa
 """
 import argparse
 import hashlib
-import os
 import subprocess
 import sys
 
@@ -15,7 +16,6 @@ import crea_patch
 import estrai
 
 FILE_GIOCO = comune.I18N_SCIOLTI / f"Compress_{crea_patch.SLOT}.bin"
-MAX_TRADUZIONI_SUBITO = 3000
 
 
 def md5(b: bytes) -> str:
@@ -37,30 +37,6 @@ def scrivi_nel_gioco(blob: bytes) -> bool:
         return False
 
 
-def traduci_nuovi() -> None:
-    en = set(comune.carica(comune.EN_JSON)["testi"].values())
-    memoria = comune.carica_memoria()
-    nuovi = sorted(s for s in en if s.strip() and s not in memoria)
-    print(f"Frasi senza traduzione: {len(nuovi)}")
-    if not nuovi:
-        return
-    if not (comune.carica_chiave_api() or os.environ.get("ANTHROPIC_AUTH_TOKEN")):
-        print("  Nessuna chiave API: queste frasi restano in inglese.")
-        return
-    if len(nuovi) > MAX_TRADUZIONI_SUBITO:
-        print(f"  Sono piu' di {MAX_TRADUZIONI_SUBITO}: usa la traduzione batch "
-              "(seleziona.py tutto, traduci.py invia / scarica). Per ora restano in inglese.")
-        return
-    import applica_lotto
-    import traduci
-    print("  Traduzione in corso con Claude...")
-    tradotte, falliti = traduci.traduci_subito(nuovi)
-    scartati = applica_lotto.aggiungi(memoria, tradotte)
-    comune.salva(comune.MEMORIA, memoria)
-    print(f"  Tradotte {len(tradotte) - len(scartati)} frasi"
-          + (f", {falliti} richieste fallite (riprova piu' tardi)" if falliti else ""))
-
-
 def esegui(controlla: bool = False, ripristina: bool = False) -> str:
     """Restituisce l'esito: installata, gia_ok, da_aggiornare, originale, gia_originale,
     ripristinato, gioco_aperto, permesso."""
@@ -80,10 +56,6 @@ def esegui(controlla: bool = False, ripristina: bool = False) -> str:
             return "ripristinato"
         return "permesso"
 
-    if not controlla:
-        traduci_nuovi()
-        import accorcia
-        accorcia.esegui()
     patch, stat = crea_patch.costruisci()
     italiano = stat.get("italiano", 0) + stat.get("italiano corto", 0)
     print(f"Blocchi in italiano: {italiano}  |  in inglese: {stat.get('inglese', 0)}"
